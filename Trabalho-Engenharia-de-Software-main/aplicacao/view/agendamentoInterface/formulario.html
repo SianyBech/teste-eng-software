@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Dados da escola | Teatro TPE{% endblock %}
+
+{% macro campo(nome, rotulo, dados, erros, tipo='text') %}
+<div class="mb-3">
+  <label class="form-label" for="{{ nome }}">{{ rotulo }}</label>
+  <input class="form-control {{ 'is-invalid' if erros.get(nome) }}" id="{{ nome }}"
+         name="{{ nome }}" type="{{ tipo }}" value="{{ dados.get(nome, '') }}">
+  {% if erros.get(nome) %}<div class="invalid-feedback">{{ erros[nome] }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% block content %}
+<h1 class="h2 mb-4">Solicitar agendamento</h1>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <strong>{{ sessao.peca.titulo }}</strong><br>
+    {{ sessao.data_hora.strftime('%d/%m/%Y às %H:%M') }} · {{ quantidade }} ingresso(s)
+  </div>
+</div>
+
+<form method="post" action="{{ url_for('agendamentos.revisar') }}" novalidate>
+  <input type="hidden" name="sessao_id" value="{{ sessao.id }}">
+  <input type="hidden" name="quantidade" value="{{ quantidade }}">
+
+  {{ campo('nome', 'Nome da escola', dados, erros) }}
+  {{ campo('cnpj', 'CNPJ', dados, erros) }}
+  {{ campo('email', 'E-mail', dados, erros, 'email') }}
+  {{ campo('telefone', 'Telefone (com DDD)', dados, erros) }}
+  {{ campo('responsavel', 'Responsável pelo agendamento', dados, erros) }}
+
+  <button class="btn btn-primary" type="submit">Revisar dados</button>
+  <a class="btn btn-outline-secondary"
+     href="{{ url_for('agendamentos.calendario', peca_id=sessao.peca_id) }}">Voltar ao calendário</a>
+</form>
+{% endblock %}

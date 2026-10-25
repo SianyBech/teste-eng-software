@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Criar peça | Teatro TPE{% endblock %}
+
+{% block content %}
+<h1 class="h2 mb-4">Cadastrar peça</h1>
+{% set form_action = url_for('pecas.criar_peca') %}
+{% set submit_text = 'Salvar peça' %}
+{% include "pecaInterface/_form.html" %}
+{% endblock %}

@@ -1,0 +1,7 @@
+venv/
+atas_reunioes/
+__pycache__/
+.cache/
+*.py[cod]
+instance/
+teatro.db

@@ -1,0 +1,77 @@
+<form method="post" action="{{ form_action }}" enctype="multipart/form-data" class="bg-white border rounded p-4">
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input id="titulo" name="titulo" class="form-control" maxlength="150" required value="{{ request.form.get('titulo', peca.titulo if peca else '') }}">
+    </div>
+    <div class="mb-3">
+        <label for="sinopse" class="form-label">Sinopse</label>
+        <textarea id="sinopse" name="sinopse" class="form-control" rows="4" required>{{ request.form.get('sinopse', peca.sinopse if peca else '') }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="ficha_tecnica" class="form-label">Ficha técnica</label>
+        <textarea id="ficha_tecnica" name="ficha_tecnica" class="form-control" rows="4" required>{{ request.form.get('ficha_tecnica', peca.ficha_tecnica if peca else '') }}</textarea>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="faixa_etaria" class="form-label">Faixa etária recomendada</label>
+            <select id="faixa_etaria" name="faixa_etaria" class="form-select" required>
+                {% for faixa in ['Livre', '10', '12', '14', '16', '18'] %}
+                    <option value="{{ faixa }}" {% if request.form.get('faixa_etaria', peca.faixa_etaria if peca else 'Livre') == faixa %}selected{% endif %}>
+                        {{ faixa }}{% if faixa != 'Livre' %} anos{% endif %}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="duracao_minutos" class="form-label">Duração (minutos)</label>
+            <input id="duracao_minutos" name="duracao_minutos" type="number" min="5" step="5" class="form-control" required value="{{ request.form.get('duracao_minutos', peca.duracao_minutos if peca else '') }}">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="mes" class="form-label">Mês de exibição</label>
+        <select id="mes" name="mes" class="form-select" required>
+                <option value="">— Selecione —</option>
+                {% for m in ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+                     'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'] %}
+                <option value="{{ m }}"
+                    {% if request.form.get('mes', peca.mes if peca else '') == m %}selected{% endif %}>
+                    {{ m }}
+                 </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="poster" class="form-label">Pôster da peça (opcional)</label>
+        {% if peca and peca.poster_filename %}
+            <div class="mb-2">
+                <img src="{{ url_for('pecas.servir_poster', nome_arquivo=peca.poster_filename) }}" alt="Pôster atual de {{ peca.titulo }}" class="img-thumbnail" style="max-width: 100px; max-height: 130px;">
+                <span class="form-text">O pôster atual será mantido se nenhum novo for enviado.</span>
+            </div>
+        {% endif %}
+        <input id="poster" name="poster" type="file" accept="image/jpeg,image/png,image/gif,image/webp" class="form-control">
+        <div class="form-text">Selecione uma imagem ou cole uma imagem copiada nesta página (JPG, PNG, GIF ou WebP; até 8 MB).</div>
+        <div id="poster-selecionado" class="form-text" aria-live="polite"></div>
+    </div>
+    <button class="btn btn-primary" type="submit">{{ submit_text }}</button>
+    <a class="btn btn-outline-secondary" href="{{ url_for('pecas.listar_pecas') }}">Cancelar</a>
+</form>
+<script>
+    const posterInput = document.getElementById("poster");
+    const posterNome = document.getElementById("poster-selecionado");
+    posterInput.addEventListener("change", () => {
+        posterNome.textContent = posterInput.files.length ? posterInput.files[0].name : "";
+    });
+    document.addEventListener("paste", (event) => {
+        const imagem = Array.from(event.clipboardData.items)
+            .find((item) => item.type.startsWith("image/"));
+        if (!imagem) return;
+
+        const arquivo = imagem.getAsFile();
+        if (!arquivo) return;
+        const extensao = arquivo.type.split("/")[1].replace("jpeg", "jpg");
+        const transferir = new DataTransfer();
+        transferir.items.add(new File([arquivo], `poster-colado.${extensao}`, { type: arquivo.type }));
+        posterInput.files = transferir.files;
+        posterNome.textContent = posterInput.files[0].name;
+    });
+</script>

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Editar peça | Teatro TPE{% endblock %}
+
+{% block content %}
+<h1 class="h2 mb-4">Editar peça</h1>
+{% set form_action = url_for('pecas.editar_peca', peca_id=peca.id) %}
+{% set submit_text = 'Salvar alterações' %}
+{% include "pecaInterface/_form.html" %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Agendamento confirmado | Teatro TPE{% endblock %}
+{% block content %}
+<h1 class="h2 mb-4">Agendamento confirmado</h1>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <p>O espaço foi reservado para a sua escola.</p>
+    <dl class="row mb-0">
+      <dt class="col-sm-3">Código</dt><dd class="col-sm-9">#{{ agendamento.id }}</dd>
+      <dt class="col-sm-3">Peça</dt><dd class="col-sm-9">{{ agendamento.sessao.peca.titulo }}</dd>
+      <dt class="col-sm-3">Data</dt>
+      <dd class="col-sm-9">{{ agendamento.sessao.data_hora.strftime('%d/%m/%Y às %H:%M') }}</dd>
+      <dt class="col-sm-3">Ingressos</dt><dd class="col-sm-9">{{ agendamento.quantidade }}</dd>
+      <dt class="col-sm-3">Escola</dt><dd class="col-sm-9">{{ agendamento.escola_nome }}</dd>
+    </dl>
+  </div>
+</div>
+
+<a class="btn btn-primary" href="{{ url_for('agendamentos.catalogo') }}">Voltar ao catálogo</a>
+{% endblock %}

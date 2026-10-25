@@ -1,0 +1,116 @@
+{
+  "_leia_me": "Dados de teste do Teatro TPE. Campos de cada peça: titulo, sinopse, ficha_tecnica, faixa_etaria (Livre, 10, 12, 14, 16 ou 18), duracao_minutos, dias (quantos dias a partir de HOJE cada sessão acontece, mínimo 1), hora (HH:MM). Opcionais: reservadas (quantas das primeiras sessões já nascem reservadas por uma escola de teste), mes (por padrão é o mês da primeira sessão) e poster (nome de uma imagem dentro de dados_teste/posters; sem ela, um pôster é gerado). Como as datas são relativas a hoje, as sessões ficam sempre no futuro.",
+  "pecas": [
+    {
+      "titulo": "CONTO DO AMOR SEM FIM",
+      "sinopse": " Nas espirais da prosa de um contador, dono do tempo que não tem medida,somos convidados a adentrar esse terreno perigoso: o das promessas de amor. Foi ali, próximo a um Ilê, que o jogo do destino desvelou uma história interminável. na microesfera de uma família, o acaso do destino que insiste em brincar de amor. Um encontro fugaz é o suficiente para mudar a vida de três irmãs: Teresa, Carminha, e Madalena. Neste conto de amor infinito, acompanhamos a espera de Teresa, filha de Oxum, aquela que ousou amar e acreditar nas palavras do mundo, e que se deixou ser seduzida por um malandro sem futuro. Suas irmãs, de santo e carnais, esperam todas juntas, louvando, honrando e aguardando um sinal de suas ayabás. Num mundo onde tudo passa, tudo muda e tudo morre, descobrimos que o amor de Teresa não passava, não mudava, e não morria.",
+      "ficha_tecnica": "Direção: Eduard Pereira | Texto: Paulo Rezende | Elenco: Alycia Cavalli, Camila Consi, Gabriel Lobato, Kimberly Pereira e Vitória Stifft e Vítor Stifft| Música: Coletivo Vento Sul",
+      "faixa_etaria": "16",
+      "duracao_minutos": 75,
+      "hora": "10:00",
+      "dias": [3, 10, 17, 24],
+      "reservadas": 1
+    },
+    {
+      "titulo": "A Menina e o Rio",
+      "sinopse": "Todos os dias, Aninha conversa com o rio da sua cidade. Quando ele começa a secar, ela sai em busca da nascente e aprende que cuidar da água é uma tarefa de todo mundo.",
+      "ficha_tecnica": "Direção: Helena Duarte | Texto: Caio Mendonça | Elenco: Rafaela Nunes, Otávio Braga, Lúcia Freitas | Cenário: Ateliê Pé na Terra",
+      "faixa_etaria": "Livre",
+      "duracao_minutos": 50,
+      "hora": "14:00",
+      "dias": [5, 12, 19, 33]
+    },
+    {
+      "titulo": "Noite de Lua no Sertão",
+      "sinopse": "Numa vila esquecida pelo mapa, uma cantadora e um violeiro disputam a atenção da lua em uma noite de desafio. Entre versos e causos, a plateia ajuda a decidir quem canta melhor.",
+      "ficha_tecnica": "Direção: Joaquim Pires | Texto: Dora Lacerda | Elenco: Ari Medeiros, Socorro Vidal | Música ao vivo: Trio Mandacaru",
+      "faixa_etaria": "10",
+      "duracao_minutos": 70,
+      "hora": "19:30",
+      "dias": [8, 15, 29]
+    },
+    {
+      "titulo": "O Último Ônibus",
+      "sinopse": "Cinco desconhecidos esperam o último ônibus da noite. Quando ele não chega, cada um conta o motivo de estar ali e descobre que suas histórias se cruzam mais do que imaginavam.",
+      "ficha_tecnica": "Direção: Renata Siqueira | Texto: Bruno Tavares | Elenco: Camila Rocha, Edu Barros, Vera Antunes, Léo Campos, Jade Moreira | Iluminação: Pedro Salgado",
+      "faixa_etaria": "14",
+      "duracao_minutos": 80,
+      "hora": "20:00",
+      "dias": [6, 13, 20, 27],
+      "reservadas": 1
+    },
+    {
+      "titulo": "Quem Roubou o Verão?",
+      "sinopse": "Num belo dia, o verão desaparece e deixa as estações em confusão. Um trio de detetives mirins investiga pistas de sol, chuva e vento para trazer a estação de volta.",
+      "ficha_tecnica": "Direção: Sílvia Cordeiro | Texto: Marcos Vilela | Elenco: Duda Ramos, Gael Pinto, Íris Campos | Figurinos: Ateliê Retalhos",
+      "faixa_etaria": "Livre",
+      "duracao_minutos": 45,
+      "hora": "09:30",
+      "dias": [4, 11, 18]
+    },
+    {
+      "titulo": "Cartas para Ninguém",
+      "sinopse": "Uma carteira aposentada guarda cartas que nunca foram entregues. Ao decidir levá-las aos destinatários, ela atravessa a cidade e reencontra pedaços esquecidos da própria vida.",
+      "ficha_tecnica": "Direção: Beatriz Lobo | Texto: Fernando Aguiar | Elenco: Olga Brandão, Ivo Santana | Trilha: Carolina Mello",
+      "faixa_etaria": "16",
+      "duracao_minutos": 90,
+      "hora": "20:30",
+      "dias": [9, 16, 23, 37]
+    },
+    {
+      "titulo": "Os Três Porquinhos Cientistas",
+      "sinopse": "Os três porquinhos trocam as casas por laboratórios e testam, com muito humor, qual material resiste melhor ao sopro do lobo. Uma aventura sobre curiosidade, experimentos e trabalho em equipe.",
+      "ficha_tecnica": "Direção: Luana Esteves | Texto: Gustavo Peixoto | Elenco: Téo Barreto, Manu Lima, Rui Cavalcanti, Pietra Gomes | Direção científica: Prof. Alice Monteiro",
+      "faixa_etaria": "Livre",
+      "duracao_minutos": 40,
+      "hora": "10:30",
+      "dias": [7, 14, 21, 28],
+      "reservadas": 2
+    },
+    {
+      "titulo": "Memórias de um Relógio",
+      "sinopse": "Um velho relógio de parede conta a história de uma família ao longo de cem anos, de casamentos a mudanças de endereço, marcando as horas em que tudo mudou.",
+      "ficha_tecnica": "Direção: Augusto Pimentel | Texto: Leila Nogueira | Elenco: Zeca Andrade, Mirela Costa, Hugo Teles | Cenografia: Rita Falcão",
+      "faixa_etaria": "12",
+      "duracao_minutos": 75,
+      "hora": "15:00",
+      "dias": [10, 24, 38, 45]
+    },
+    {
+      "titulo": "A Escola que Voou",
+      "sinopse": "Numa manhã de vento forte, a escola do bairro sai do chão e começa a voar com todos os alunos dentro. Entre nuvens e aulas improvisadas, a turma descobre o que é preciso para pousar.",
+      "ficha_tecnica": "Direção: Tereza Maciel | Texto: Davi Quintela | Elenco: Bel Cunha, Nando Reis Filho, Alana Prado, Sérgio Matos | Efeitos: Oficina do Vento",
+      "faixa_etaria": "Livre",
+      "duracao_minutos": 60,
+      "hora": "14:30",
+      "dias": [12, 19, 26, 40]
+    },
+    {
+      "titulo": "Sombras na Biblioteca",
+      "sinopse": "Durante uma noite de chuva, uma bibliotecária e um aluno ficam trancados entre as estantes. Os livros ganham vida em teatro de sombras e revelam um mistério escondido nas últimas páginas.",
+      "ficha_tecnica": "Direção: Cláudio Ferraz | Texto: Anita Borges | Elenco: Mônica Reis, Felipe Tavares | Teatro de sombras: Cia. Luz e Papel",
+      "faixa_etaria": "14",
+      "duracao_minutos": 85,
+      "hora": "19:00",
+      "dias": [15, 22, 36, 50]
+    },
+    {
+      "titulo": "A Festa das Cores",
+      "sinopse": "Na aldeia onde tudo era cinza, uma criança encontra um pincel mágico. A cada cor devolvida ao mundo, uma nova canção e uma nova dança surgem na praça.",
+      "ficha_tecnica": "Direção: Marta Ibarra | Texto: Lucas Valente | Elenco: Coletivo Arco-Íris (8 atores) | Coreografia: Dani Saldanha | Figurino: Ateliê Pigmento",
+      "faixa_etaria": "10",
+      "duracao_minutos": 65,
+      "hora": "16:00",
+      "dias": [20, 34, 48, 55]
+    },
+    {
+      "titulo": "Dom Quixote de Bolso",
+      "sinopse": "Uma versão enxuta e bem-humorada do clássico de Cervantes: um cavaleiro, seu fiel escudeiro e uma plateia convidada a ajudar a decidir o que é gigante e o que é moinho de vento.",
+      "ficha_tecnica": "Direção: Wagner Falcão | Adaptação: Teresa Coutinho | Elenco: Nicolau Prates, Ester Veiga, Bento Lobato | Obra original: Miguel de Cervantes",
+      "faixa_etaria": "12",
+      "duracao_minutos": 70,
+      "hora": "14:00",
+      "dias": [25, 39, 53, 60]
+    }
+  ]
+}

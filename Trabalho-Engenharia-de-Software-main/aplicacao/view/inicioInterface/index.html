@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Início | Teatro TPE{% endblock %}
+{% block content %}
+<div class="text-center py-4">
+  <h1 class="display-5 mb-3">Teatro TPE</h1>
+  <p class="lead text-secondary mb-4">
+    Confira a programação completa da Temporada TPE 2026:
+  </p>
+</div>
+
+<!-- Campo de busca -->
+<form method="get" action="{{ url_for('inicio.index') }}" class="mb-4">
+  <div class="input-group input-group-lg">
+    <input type="search"
+           name="q"
+           class="form-control"
+           placeholder="Buscar por título..."
+           aria-label="Buscar peça">
+    <button class="btn btn-primary" type="submit"></i>Buscar</button>
+  </div>
+</form>
+
+<div class="text-center">
+  <a class="btn btn-outline-primary btn-lg"
+     href="{{ url_for('pecas.listar_pecas') }}">
+    Ver catálogo completo
+  </a>
+</div>
+{% endblock %}

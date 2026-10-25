@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Confirmar agendamento | Teatro TPE{% endblock %}
+{% block content %}
+<h1 class="h2 mb-4">Confirme os dados</h1>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <dl class="row mb-0">
+      <dt class="col-sm-3">Peça</dt><dd class="col-sm-9">{{ sessao.peca.titulo }}</dd>
+      <dt class="col-sm-3">Data</dt>
+      <dd class="col-sm-9">{{ sessao.data_hora.strftime('%d/%m/%Y às %H:%M') }}</dd>
+      <dt class="col-sm-3">Ingressos</dt><dd class="col-sm-9">{{ quantidade }}</dd>
+      <dt class="col-sm-3">Escola</dt><dd class="col-sm-9">{{ dados.nome }}</dd>
+      <dt class="col-sm-3">CNPJ</dt><dd class="col-sm-9">{{ dados.cnpj }}</dd>
+      <dt class="col-sm-3">E-mail</dt><dd class="col-sm-9">{{ dados.email }}</dd>
+      <dt class="col-sm-3">Telefone</dt><dd class="col-sm-9">{{ dados.telefone }}</dd>
+      <dt class="col-sm-3">Responsável</dt><dd class="col-sm-9">{{ dados.responsavel }}</dd>
+    </dl>
+  </div>
+</div>
+
+<form method="post" action="{{ url_for('agendamentos.confirmar') }}">
+  <input type="hidden" name="sessao_id" value="{{ sessao.id }}">
+  <input type="hidden" name="quantidade" value="{{ quantidade }}">
+  {% for campo, valor in dados.items() %}
+  <input type="hidden" name="{{ campo }}" value="{{ valor }}">
+  {% endfor %}
+
+  <button class="btn btn-primary" type="submit">Confirmar agendamento</button>
+  <a class="btn btn-outline-secondary"
+     href="{{ url_for('agendamentos.formulario', sessao_id=sessao.id, quantidade=quantidade, **dados) }}">Corrigir dados</a>
+</form>
+{% endblock %}

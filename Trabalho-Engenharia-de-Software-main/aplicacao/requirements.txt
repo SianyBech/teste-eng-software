@@ -1,0 +1,5 @@
+Flask
+Flask-SQLAlchemy
+Flask-WTF #para formularios
+flasgger #para documentação da API
+Flask-Login #para login do gestorhttp://127.0.0.1:5000

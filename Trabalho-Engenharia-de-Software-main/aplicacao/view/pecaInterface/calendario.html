@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Calendário | Teatro TPE{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="h2 mb-1">Calendário</h1>
+        <p class="text-secondary mb-0">{{ peca.titulo }}</p>
+    </div>
+    <a class="btn btn-outline-secondary" href="{{ url_for('pecas.listar_pecas') }}">Voltar às peças</a>
+</div>
+
+<form method="post" class="bg-white border rounded p-4 mb-4">
+    <div class="row align-items-end">
+        <div class="col-md-8 mb-3 mb-md-0">
+            <label for="data_hora" class="form-label">Data e horário da exibição</label>
+            <input id="data_hora" name="data_hora" type="datetime-local" class="form-control" lang="pt-BR" required>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary w-100" type="submit">Adicionar sessão</button>
+        </div>
+    </div>
+</form>
+
+<h2 class="h4 mb-3">Exibições agendadas</h2>
+{% if sessoes %}
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered bg-white">
+            <thead><tr><th>Data</th><th>Horário</th><th>Ações</th></tr></thead>
+            <tbody>
+                {% for sessao in sessoes %}
+                    <tr>
+                        <td>{{ sessao.data_hora.strftime('%d/%m/%Y') }}</td>
+                        <td>{{ sessao.data_hora.strftime('%H:%M') }}</td>
+                        <td>
+                            <form method="post" action="{{ url_for('pecas.excluir_sessao', peca_id=peca.id, sessao_id=sessao.id) }}" onsubmit="return confirm('Excluir esta sessão?');">
+                                <button class="btn btn-sm btn-outline-danger" type="submit">Excluir sessão</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p class="text-secondary">Nenhuma exibição agendada para esta peça.</p>
+{% endif %}
+{% endblock %}
